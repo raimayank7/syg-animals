@@ -1,0 +1,24 @@
+/* animals: emoji tiles, status badges, classification ladder, quiz */
+.agrid a{justify-content:flex-start;gap:12px}
+.agrid a span:last-child{display:flex;flex-direction:column;min-width:0}
+.agrid a small{white-space:normal}
+.em{font-size:1.7rem;line-height:1;flex:none;width:36px;text-align:center}
+.anhero{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.anhero>div:last-child{flex:1 1 240px;min-width:0}
+.emoji{font-size:4.2rem;line-height:1;width:110px;height:110px;display:grid;place-items:center;border-radius:20px;background:var(--surface);border:1px solid var(--line);flex:none}
+.lead{font-size:1.08rem}
+.st{display:inline-block;font-size:.84rem;font-weight:700;padding:3px 10px;border-radius:99px;border:1px solid var(--line);background:var(--surface2);color:var(--ink)}
+.st-lc{border-color:#16a34a}.st-nt{border-color:#84cc16}.st-vu{border-color:#eab308}.st-en{border-color:#f97316}.st-cr{border-color:#dc2626}
+.st-vu::before,.st-en::before,.st-cr::before,.st-lc::before,.st-nt::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;background:currentColor}
+.st-lc::before{background:#16a34a}.st-nt::before{background:#84cc16}.st-vu::before{background:#eab308}.st-en::before{background:#f97316}.st-cr::before{background:#dc2626}
+h2 .st{font-size:1rem;vertical-align:middle}
+.ladder{list-style:none;padding:0;margin:12px 0}
+.ladder li{padding:8px 12px;border-left:3px solid var(--accent);background:var(--surface);margin:0 0 4px;border-radius:0 8px 8px 0}
+.ladder li:nth-child(2){margin-left:8px}.ladder li:nth-child(3){margin-left:16px}.ladder li:nth-child(4){margin-left:24px}.ladder li:nth-child(5){margin-left:32px}.ladder li:nth-child(6){margin-left:40px}.ladder li:nth-child(7){margin-left:48px}
+.ladder span{color:var(--soft);font-size:.86rem;display:inline-block;min-width:70px}
+.qopts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));margin:12px 0}
+.qopts button{min-height:52px;padding:10px;border-radius:10px;border:1px solid var(--field-line);background:var(--field);color:var(--ink);font:600 1.02rem var(--font);cursor:pointer}
+.qopts button.right{background:var(--ok);color:var(--accent-ink);border-color:var(--ok)}
+.qopts button.wrong{border-color:var(--bad);color:var(--bad)}
+.qask{font:700 1.25rem var(--font-head);margin:.6em 0 .2em}
+.qask .em{font-size:2.6rem;display:block;width:auto;text-align:left;margin-bottom:6px}
