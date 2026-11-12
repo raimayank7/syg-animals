@@ -5,7 +5,7 @@
   var KEY = 'syg-pets-recent';
 
   var art = $('[data-pet]');
-  if (art) S.recent(KEY, { u: '/' + art.getAttribute('data-pet') + '/', t: art.getAttribute('data-name') });
+  if (art) S.recent(KEY, { u: '/pets/' + art.getAttribute('data-pet') + '/', t: art.getAttribute('data-name') });
   var rl = $('#recent-list');
   if (rl) { var rec = S.recent(KEY); if (rec.length) { rl.innerHTML = rec.map(function (r) { return '<a href="' + S.esc(r.u) + '">' + S.esc(r.t) + '</a>'; }).join(''); $('#recent').hidden = false; } }
 

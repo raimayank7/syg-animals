@@ -5,7 +5,7 @@
   var KEY = 'syg-animals-recent';
 
   var art = $('[data-an]');
-  if (art) S.recent(KEY, { u: '/' + art.getAttribute('data-an') + '/', t: art.getAttribute('data-name') });
+  if (art) S.recent(KEY, { u: '/animals/' + art.getAttribute('data-an') + '/', t: art.getAttribute('data-name') });
 
   var all = $('#all'), q = $('#q');
   if (all && q) {
