@@ -1,0 +1,32 @@
+/* pets: guide layout, tick lists, chooser */
+.phero{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.phero>div:last-child{flex:1 1 240px;min-width:0}
+.emoji{font-size:4.2rem;line-height:1;width:110px;height:110px;display:grid;place-items:center;border-radius:20px;background:var(--surface);border:1px solid var(--line);flex:none}
+.pgrid a{justify-content:flex-start;gap:12px}
+.pgrid a span:last-child{display:flex;flex-direction:column;min-width:0}
+.pgrid a small{white-space:normal}
+.em{font-size:1.9rem;line-height:1;flex:none;width:40px;text-align:center}
+.lead{font-size:1.08rem}
+.two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.two>div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px 10px}
+.two h3{margin-top:12px}
+ul.yes,ul.no,ul.checks{list-style:none;padding-left:0}
+ul.yes li,ul.no li,ul.checks li{padding-left:28px;position:relative}
+ul.yes li::before,ul.no li::before,ul.checks li::before{position:absolute;left:0;top:0;font-weight:700}
+ul.yes li::before{content:"✓";color:var(--ok)}
+ul.no li::before{content:"✕";color:var(--bad)}
+ul.checks li::before{content:"☐";color:var(--soft)}
+.ticks{list-style:none;padding:0;margin:8px 0}
+.ticks label{display:flex;gap:12px;align-items:flex-start;min-height:44px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);margin:0 0 6px;cursor:pointer}
+.ticks input{width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--accent)}
+.ticks input:checked+span{color:var(--soft);text-decoration:line-through}
+.fit{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:12px 16px;margin:0 0 10px;border-left:6px solid var(--line)}
+.fit.good{border-left-color:#16a34a}.fit.maybe{border-left-color:#d97706}.fit.poor{border-left-color:#dc2626}
+.fit h3{margin:0 0 4px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+.fit h3 a{display:inline-flex;align-items:center;min-height:40px}
+.fit h3 small{font:600 .82rem var(--font);color:var(--soft)}
+.fit ul{margin:4px 0 6px;padding-left:20px}
+.fit p{margin:.3em 0}
+.card h2{margin:0;font-size:1.1rem}
+@media print{.noprint,.ticks input{display:none}.ticks label{border:0;padding:2px 0;min-height:0}.ticks label::before{content:"☐ "}.note{border:1px solid #999}.two>div{border:1px solid #999}}

@@ -50,7 +50,7 @@
     var ask = function () {
       if (idx >= round.length) {
         try { var b = +localStorage.getItem(bkey()) || 0; if (score > b) localStorage.setItem(bkey(), score); } catch (e) {}
-        var txt = 'I scored ' + score + ' out of 10 on the animal quiz. Can you beat it? https://animals.shareyourgroup.com/quiz/';
+        var txt = 'I scored ' + score + ' out of 10 on the animal quiz. Can you beat it? https://animals.shareyourgroup.com/animals/quiz/';
         box.innerHTML = '<p class="qask">You scored ' + score + ' out of 10</p><p>' + (score === 10 ? 'Perfect. Try another kind of quiz.' : score >= 7 ? 'Well done. One more round?' : 'Good try. Every round has new animals.') + '</p>' +
           '<div class="acts"><button class="btn" type="button" id="qstart">Play again</button><button class="btn ghost" type="button" data-wa="' + S.esc(txt) + '">Challenge a friend</button></div>';
         showBest(); return;
@@ -66,13 +66,13 @@
     var start = function () { round = shuffle(pool()).slice(0, 10); score = 0; idx = 0; ask(); };
     qz.addEventListener('click', function (ev) {
       var b = ev.target.closest('button'); if (!b) return;
-      if (b.id === 'qstart') { if (data) start(); else S.json('/data/animals.json').then(function (j) { data = j; start(); }).catch(function () { S.toast('Could not load the questions. Check your connection.'); }); return; }
+      if (b.id === 'qstart') { if (data) start(); else S.json('/animals/data/animals.json').then(function (j) { data = j; start(); }).catch(function () { S.toast('Could not load the questions. Check your connection.'); }); return; }
       if (b.hasAttribute('data-t')) { $$('#qtype button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); type = b.getAttribute('data-t'); showBest(); if (data && round) start(); return; }
       if (b.hasAttribute('data-ok') && !b.disabled) {
         var ok = b.getAttribute('data-ok') === '1', e = round[idx];
         $$('.qopts button').forEach(function (x) { x.disabled = true; if (x.getAttribute('data-ok') === '1') x.classList.add('right'); });
         if (ok) score++; else b.classList.add('wrong');
-        $('#qfb').innerHTML = (ok ? 'Correct. ' : 'Not quite. The answer is "' + S.esc(field(e)) + '". ') + '<a href="/' + e[1] + '/">Read about it: ' + S.esc(e[0]) + '</a>. <button class="btn sm" type="button" id="qnext">Next</button>';
+        $('#qfb').innerHTML = (ok ? 'Correct. ' : 'Not quite. The answer is "' + S.esc(field(e)) + '". ') + '<a href="/animals/' + e[1] + '/">Read about it: ' + S.esc(e[0]) + '</a>. <button class="btn sm" type="button" id="qnext">Next</button>';
         $('#qnext').focus(); return;
       }
       if (b.id === 'qnext') { idx++; ask(); }
